@@ -1,0 +1,31 @@
+        <div style="padding-inline: 200px; padding-top: 50px;">
+          <form [formGroup]="formRegister" (submit)="submit()"> 
+              <label for="nombre">Nombre:</label>
+              <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre">
+              <br>
+              <label for="apellidos">Apellidos:</label>
+              <input class="form-control" type="text" placeholder="Apellidos" id="apellidos" formControlName="apellidos">
+              <br>
+              <label for="password">Contraseña:</label>
+              <input class="form-control" type="text" placeholder="Contraseña" id="password" formControlName="password">
+              <br>
+              <label for="passconf">Repite contraseña:</label>
+              <input class="form-control" type="text" placeholder="Contraseña" id="passconf" formControlName="password2">
+              <br>
+              <label for="poblacion">Poblacion:</label>
+              <input class="form-control" type="text" placeholder="Poblacion" id="poblacion" formControlName="poblacion">
+              <br>
+              <label for="provincia">Provincia:</label>
+              <input class="form-control" type="text" placeholder="Provincia" id="provincia" formControlName="provincia">
+              <br>
+              <label for="email">E-Mail:</label>
+              <input class="form-control" type="text" placeholder="E-Mail" id="email" formControlName="email">
+              <br>
+              <label for="telefono">Teléfono:</label>
+              <input class="form-control" type="number" placeholder="Teléfono" id="telefono" formControlName="telefono">
+              <br>
+              
+              <button class="btn btn-primary btn-block" type ="submit" [disabled]="!formRegister.valid">Registrar</button>
+          </form>
+        </div>
+        

@@ -1,0 +1,17 @@
+.list-group-item{
+  font-size: 1.3em;
+  font-style: italic;
+}
+
+.jumbotron{
+  padding : 4rem 2rem;
+  border-radius: 1em;
+  font-family: 'Akaya Telivigala', cursive;
+}
+
+.anun{
+  text-align: center; 
+  border: 3px solid black;
+  background-color: rgb(73, 73, 73);
+  color: rgb(255, 255, 255);
+}

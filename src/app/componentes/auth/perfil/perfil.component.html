@@ -1,0 +1,90 @@
+<div class="todo">
+  
+        <div class="princi">
+          <div class="pariz">
+            
+              <p><img src="{{perfil.foto}}" class="image"></p>
+              
+              
+          </div>
+          <div class="parde">
+            <h3 class="nom">{{perfil.nombre}} {{perfil.apellidos}}</h3>
+            <p class="card-text"><b>E-mail: {{perfil.email}}</b></p>
+            <p class="card-text"><b>Poblacion:{{perfil.poblacion}}</b></p>
+            <p class="card-text"><b>Provincia:{{perfil.provincia}}</b></p>
+            <p class="card-text"><b>Teléfono:{{perfil.telefono}}</b></p><br>
+             </div>
+          <div class="pie">
+            <button class="btn btn-primary" (click)='mostrarEditar=!mostrarEditar'><i class="fas fa-edit"></i></button>
+            <button class="btn btn-danger" (click)='mostrarEliminar=!mostrarEliminar'><i class="fas fa-user-slash"></i></button>
+          
+          </div>
+            
+      </div>
+      <div class="row" *ngIf='mostrarEditar'>
+        <div class="col-12">
+          <hr>
+          <form [formGroup]="formPerfil" (submit)="editarPerfil()">
+            <div class="form-row mb-1">
+              <div class="form-group col-md-3 offset-md-2">
+                <label for="nombre">Nombre:</label>
+                <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre">
+              </div>
+              <div class="form-group col-md-5">
+                <label for="apellidos">Apellidos:</label>
+                <input class="form-control" type="text" placeholder="Apellidos" id="apellidos" formControlName="apellidos">
+              </div>
+            </div>
+            <div class="form-row mb-1">
+              <div class="form-group col-md-2 offset-md-2">
+                <label for="telefono">Teléfono:</label>
+                <input class="form-control" type="number" placeholder="Teléfono" id="telefono" formControlName="telefono">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="email">E-Mail:</label>
+                <input class="form-control" type="text" placeholder="E-Mail" id="email" formControlName="email">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="password">Contraseña:</label>
+                <input class="form-control" type="password" placeholder="Contraseña" id="password" formControlName="password">
+              </div>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf='mensaje'>
+              <strong>{{mensaje}}</strong>
+            </div>
+            <form [formGroup]='formImagen' (ngSubmit)='subirImagen()'>
+              <div class="input-group">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputF1" formControlName='imagen' (change)='cambiaImagen($event)'>
+                  <label class="custom-file-label" for="inputF1">Elegir Archivo</label>
+                </div>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type='submit'>Subir imagen</button>
+                </div>
+              </div>
+            </form>
+            <br>
+            <div class="btn-group btn-block">
+              <button class="btn btn-primary" type ="submit" [disabled]="!formPerfil.valid">Guardar cambios</button>
+              <button class="btn btn-success" (click)='mostrarEditar=!mostrarEditar'>Cancelar</button>
+            </div>
+          </form>
+          <hr>
+          
+        
+          
+        </div>
+      </div>
+      <div class="row" *ngIf="mostrarEliminar">
+        <div class="col-12">
+          <hr>
+          <label for="txt-elimina">Para eliminar el usuario introduce el email</label>
+          <input id="txt-elimina" class="form-control" type='text' [(ngModel)]='inputBorrar' placeholder="E-Mail">
+          <div class="btn-group btn-block">
+            <button class="btn btn-success" (click)='mostrarEliminar=!mostrarEliminar; inputBorrar=""'>Cancelar</button>
+            <button class="btn btn-danger" (click)='eliminarUsuario()' [disabled]='inputBorrar!=perfil.email'>Eliminar</button>
+          </div>
+        </div>
+      </div>
+
+    </div>

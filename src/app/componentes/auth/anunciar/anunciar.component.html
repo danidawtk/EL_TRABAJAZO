@@ -1,0 +1,18 @@
+<div style="padding-inline: 150px; padding-top: 50px;">
+    <form [formGroup]="formAnunciar" (submit)="submit()"> 
+        <label for="titulo">Titulo:</label>
+        <input class="form-control" type="text" placeholder="Titulo" id="titulo" formControlName="titulo">
+        <br>
+        <label for="texto">Texto:</label>
+        <textarea  class="form-control" type="text" placeholder="Descripcion del articulo..." id="texto" formControlName="texto" style="height: 200px;"></textarea>
+        
+        <br>
+        <label for="precio">Precio:</label>
+        <input class="form-control" type="text" placeholder="Precio(€)" id="precio" formControlName="precio">
+        <br>
+        <br>
+        
+        <button class="btn btn-primary btn-block" type ="submit">Anunciar</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,20 @@
+<br>
+<div class="input-group">
+  <input (input)='buscarAnuncio()' class="form-control" type="text" [(ngModel)]="busqueda" placeholder="Buscar...">
+</div>
+<br>
+
+<li *ngFor='let anuncio of anuncios' style="list-style:none">
+  <br>
+  <div class="anun">
+  <p>{{anuncio.fecha}}</p>
+  <h1>{{anuncio.titulo}}</h1>
+  <h3>{{anuncio.texto}}</h3>
+  <p>{{anuncio.precio}}€</p>
+  <p>Autor: {{anuncio.idanunciante}}</p>
+  
+</div>
+<br>
+</li>
+
+

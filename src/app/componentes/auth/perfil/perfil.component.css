@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.todo{
+    size: unset;
+    background-image: url("../../../../assets/img/luzes1.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(253, 253, 253);
+}
+
+
+.princi{
+    
+    /*background-color: rgb(131, 131, 131);*/
+    
+    text-align: center;
+    
+}
+
+.image{
+    
+    
+    width:100%;
+    height: 100%;
+    border-radius: 150px;
+    border:10px solid rgb(145, 253, 154);
+
+}
+
+.nom{
+    
+    font-size: 300%;
+    text-align: left;
+    padding-left: 40px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+
+.pariz{
+ float:left;
+ width: 30%;
+ 
+}
+.parde{
+ float:left;
+ width: 70%;
+ 
+ font-size: 200%;
+}
+.parde b{
+    margin: 10px;
+    background-color: rgba(20, 20, 20, 0.5) ;
+    
+}
+.pie{
+    clear:both;
+    padding:10px;
+    
+}
