@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AnuncioService } from 'src/app/servicios/anuncio.service';
+import { UserService } from 'src/app/servicios/user.service';
 import { Anuncio } from 'src/app/clases/anuncio';
 
 
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   anuncios:any
   busqueda: string
   
-  constructor(private servicioAnuncio:AnuncioService, private fb:FormBuilder) { }
+  constructor(private servicioAnuncio:AnuncioService, servicioUsuario:UserService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.obtenerAnuncios()

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnuncioService } from 'src/app/servicios/anuncio.service';
+import { UserService } from 'src/app/servicios/user.service';
+
 
 @Component({
   selector: 'app-anunciar',
@@ -14,10 +16,10 @@ export class AnunciarComponent implements OnInit {
     titulo:[''],
     texto:[''],
     precio:[''],
-    idanunciante:[''],
+    idanunciante:['4'],
   })
 
-  constructor(private fb:FormBuilder, private servicioAnuncio:AnuncioService, private irHacia:Router) { }
+  constructor(private fb:FormBuilder, private servicioAnuncio:AnuncioService, servicioUsuario:UserService,private irHacia:Router) { }
 
   ngOnInit(): void {
   }
