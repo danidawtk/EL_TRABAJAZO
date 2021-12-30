@@ -10,31 +10,39 @@ import { UserService } from 'src/app/servicios/user.service';
 })
 export class RegisterComponent implements OnInit {
   formRegister= this.fb.group({
-    nombre:[''],
+    nombre:['', [Validators.required]],
     apellidos:[''],
     password:[''],
     password2:[''],
-    email:[''],
+    email:['', [Validators.required, Validators.email]],
     poblacion:[''],
     provincia:[''],
     telefono:[''],
   })
+  errorpass: string=''
   constructor(private fb:FormBuilder, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
     
   }
 submit(): void{
-  if (this.formRegister.value.password == this.formRegister.value.password2){
+   if(this.formRegister.value.password != this.formRegister.value.password2){
+    this.errorpass="Las contraseñas deben ser las mismas"
+   }
+   else{
     this.servicioUsuario.registrar(this.formRegister.value).subscribe(
       respuesta =>{
         console.log(respuesta)
         this.servicioUsuario.guardarToken(respuesta)
         this.irHacia.navigate(['/perfil'])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.errorpass=error.error.error
+      }
     )
-  }
-  else alert('Las contraseñas no coinciden')
+   }
+
+  
 }
 }

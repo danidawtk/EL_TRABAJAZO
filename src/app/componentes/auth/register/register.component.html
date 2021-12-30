@@ -1,3 +1,7 @@
+  
+        <div class="alert alert-danger" role="alert" *ngIf='errorpass'>
+          <strong>{{errorpass}}</strong>
+        </div>
         <div style="padding-inline: 200px; padding-top: 50px;">
           <form [formGroup]="formRegister" (submit)="submit()"> 
               <label for="nombre">Nombre:</label>

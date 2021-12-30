@@ -1,3 +1,6 @@
+<div class="alert alert-danger" role="alert" *ngIf='mensaje'>
+    <strong>{{mensaje}}</strong>
+</div>
 <div style="padding-inline: 150px; padding-top: 50px;">
     <form [formGroup]="formAnunciar" (submit)="submit()"> 
         <label for="titulo">Titulo:</label>
