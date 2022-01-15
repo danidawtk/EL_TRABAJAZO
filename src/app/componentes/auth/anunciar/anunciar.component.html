@@ -13,9 +13,22 @@
         <label for="precio">Precio:</label>
         <input class="form-control" type="text" placeholder="Precio(€)" id="precio" formControlName="precio">
         <br>
-        
+        <form>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputF1">
+                <label class="custom-file-label" for="inputF1">Elegir Archivo</label>
+              </div>
+              
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type='submit'>Subir imagen</button>
+              </div>
+              
+            </div>
+          </form>
         <hr>
-        <input class="form-control" type="hidden"  id="idanunciante" formControlName="idanunciante" value="4" >
+        <input class="form-control" type="hidden"  id="idanunciante" formControlName="idanunciante" value="6">
+        <input class="form-control" type="hidden"  id="fotoanu" formControlName="fotoanu">
         
         
         <button class="btn btn-primary btn-block" type ="submit">Anunciar</button>

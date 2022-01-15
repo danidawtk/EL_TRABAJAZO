@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/clases/user';
+import { Usuario } from 'src/app/clases/usuario';
 import { AnuncioService } from 'src/app/servicios/anuncio.service';
 import { UserService } from 'src/app/servicios/user.service';
 
@@ -11,19 +13,43 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./anunciar.component.css']
 })
 export class AnunciarComponent implements OnInit {
-
+  perfil: User = {}
+  formPerfil= this.fb.group({
+    id:[''],
+    nombre:[''],
+    apellidos:[''],
+    password:[''],
+    poblacion:[''],
+    provincia:[''],
+    email:[''],
+    telefono:[''],
+    foto:[''],
+  })
   formAnunciar= this.fb.group({
     titulo:[''],
     texto:[''],
     precio:[''],
     idanunciante:['4'],
+    fotoanu:['http://localhost/EL_TRABAJAZO/backend/images/SIN-IMAGEN.jpg']
   })
+  
 
   mensaje: string=''
-  constructor(private fb:FormBuilder, private servicioAnuncio:AnuncioService, servicioUsuario:UserService,private irHacia:Router) { }
+  constructor(private fb:FormBuilder, private servicioAnuncio:AnuncioService, private servicioUsuario:UserService, private irHacia:Router) { }
 
   ngOnInit(): void {
   }
+  cargarPerfil(): void{
+    this.servicioUsuario.obtenerPerfil().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.perfil = respuesta
+        this.formPerfil.patchValue(respuesta)
+      },
+      error => console.log(error)
+    )
+  }
+  
   submit(): void{
     if(this.formAnunciar.value.titulo == ""){
       this.mensaje="Debes rellenar el titulo del anuncio"
