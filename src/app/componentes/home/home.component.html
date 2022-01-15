@@ -1,22 +1,32 @@
 <br>
-<div class="input-group">
-  <input (input)='buscarAnuncio()' class="form-control" type="text" [(ngModel)]="busqueda" placeholder="Buscar...">
-</div>
+
 <br>
 
 <li *ngFor='let anuncio of anuncios' style="list-style:none">
   <br>
   <div class="anun">
-  <p>{{anuncio.fecha}}</p>
-  <h1>{{anuncio.titulo}}</h1>
-  <h3>{{anuncio.texto}}</h3>
-  <p>{{anuncio.precio}}€</p>
-  <hr width="70%">
-  <p>Autor: {{anuncio.nombre}} {{anuncio.apellidos}}</p>
-  <p>Tel: {{anuncio.telefono}} | Email: {{anuncio.email}}</p>
-  <p>Localidad: {{anuncio.poblacion}}, {{anuncio.provincia}}</p>
-  
-</div>
+    <p>{{anuncio.fecha}}</p>
+    <div class="pariz">
+      <p><img src="{{anuncio.fotoanu}}" class="image"></p>
+    </div>
+    <div class="parde">
+      
+      <h1>{{anuncio.titulo}}</h1>
+      <h3>{{anuncio.texto}}</h3>
+      <p>{{anuncio.precio}}€</p>
+    </div>
+    <div class="pie">
+      <hr width="70%">
+      <p>Autor: {{anuncio.nombre}} {{anuncio.apellidos}}</p>
+      <p>Tel: {{anuncio.telefono}} | Email: {{anuncio.email}}</p>
+      <p>Localidad: {{anuncio.poblacion}}, {{anuncio.provincia}}</p>
+      <form>
+        <input type="hidden" id="idanu" value="{{anuncio.idanu}}">
+        <button class="btn btn-danger" (click)='eliminarAnuncio()'><i class="fas fa-trash-alt"></i></button>
+      </form>
+      
+    </div>
+  </div>
 <br>
 </li>
 

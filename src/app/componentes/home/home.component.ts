@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AnuncioService } from 'src/app/servicios/anuncio.service';
 import { UserService } from 'src/app/servicios/user.service';
 import { Anuncio } from 'src/app/clases/anuncio';
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   anuncios:any
   busqueda: string
   
-  constructor(private servicioAnuncio:AnuncioService, servicioUsuario:UserService,private fb:FormBuilder) { }
+  constructor(private servicioAnuncio:AnuncioService, servicioUsuario:UserService,private fb:FormBuilder, private irHacia:Router) { }
 
   ngOnInit(): void {
     this.obtenerAnuncios()
@@ -38,7 +39,16 @@ export class HomeComponent implements OnInit {
       error => console.log(error)
     )
   }
-  
+  eliminarAnuncio(): void{
+    this.servicioAnuncio.eliminarAnuncio().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.anuncios=respuesta
+        this.irHacia.navigate(['/home'])
+      },
+      error => console.log(error)
+    )
+  }
 
 
 }

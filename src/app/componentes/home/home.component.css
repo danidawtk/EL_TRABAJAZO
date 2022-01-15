@@ -15,3 +15,34 @@
   background-color: rgb(73, 73, 73);
   color: rgb(255, 255, 255);
 }
+
+.image{
+    
+    
+  width:60%;
+  height: 60%;
+  
+
+}
+.pariz{
+  float:left;
+  width: 30%;
+  
+ }
+ .parde{
+  text-align: left;
+  float:left;
+  width: 70%;
+  
+  font-size: 200%;
+ }
+ .parde b{
+     margin: 10px;
+     background-color: rgba(20, 20, 20, 0.5) ;
+     
+ }
+ .pie{
+     clear:both;
+     padding:10px;
+     
+ }
