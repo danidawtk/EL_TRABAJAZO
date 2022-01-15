@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Anuncio } from '../clases/anuncio';
 
-const url = 'http://localhost/proyfin/anuncios/'
+const url = 'http://localhost/EL_TRABAJAZO/backend/anuncios/'
 @Injectable({
   providedIn: 'root'
 })
@@ -19,5 +19,11 @@ export class AnuncioService {
   }
   buscarAnuncio(entrada:string): Observable<any>{
     return this.http.get(url +'list/'+'?busqueda='+ entrada)
+  }
+  subirImagen(entrada): Observable<any>{
+    return this.http.post(url+'image/', entrada) 
+   }
+   eliminarAnuncio(): Observable<any>{
+    return this.http.delete(url)
   }
 }
