@@ -1,4 +1,4 @@
-export interface Anuncio {
+export interface Anu {
     id?: number
     titulo?: string
     texto?: string
