@@ -1,10 +1,30 @@
 <br>
 
-<br>
 
+  
+  <a (click)='obtenerAnuncios()'>
+    <button src="/" class="botocate">Todos</button>
+  </a> 
+  <a (click)='obtenerAnunciosAlim()'>
+    <button class="botocate">Alimentación</button>
+  </a> 
+  
+  <a (click)='obtenerAnunciosElec()'>
+    <button class="botocate">Electrónica</button>
+  </a> 
+  <a (click)='obtenerAnunciosDeco()'>
+    <button class="botocate">Decoración</button>
+  </a> 
+  <a (click)='obtenerAnunciosVehi()'>
+    <button class="botocate">Vehículos</button>
+  </a> 
 <li *ngFor='let anuncio of anuncios' style="list-style:none">
+  
   <br>
   <div class="anun">
+    <div class="cate">
+      <p>{{anuncio.categoria}}</p>
+    </div>
     <p>{{anuncio.fecha}}</p>
     <div class="pariz">
       <p><img src="{{anuncio.fotoanu}}" class="image"></p>
@@ -20,10 +40,7 @@
       <p>Autor: {{anuncio.nombre}} {{anuncio.apellidos}}</p>
       <p>Tel: {{anuncio.telefono}} | Email: {{anuncio.email}}</p>
       <p>Localidad: {{anuncio.poblacion}}, {{anuncio.provincia}}</p>
-      <form>
-        <input type="hidden" id="idanu" value="{{anuncio.idanu}}">
-        <button class="btn btn-danger" (click)='eliminarAnuncio()'><i class="fas fa-trash-alt"></i></button>
-      </form>
+      
       
     </div>
   </div>

@@ -13,15 +13,54 @@ import { Anuncio } from 'src/app/clases/anuncio';
 })
 export class HomeComponent implements OnInit {
   anuncios:any
-  busqueda: string
+  busqueda:string
   
   constructor(private servicioAnuncio:AnuncioService, servicioUsuario:UserService,private fb:FormBuilder, private irHacia:Router) { }
 
   ngOnInit(): void {
     this.obtenerAnuncios()
+    
   }
+  
   obtenerAnuncios(): void{
     this.servicioAnuncio.listarAnuncios().subscribe(
+      respuesta =>{
+        console.log(respuesta)
+        this.anuncios=respuesta
+      },
+      error => {console.log(error)}
+    )
+  }
+  obtenerAnunciosAlim(): void{
+    this.servicioAnuncio.listarAnunciosAlim().subscribe(
+      respuesta =>{
+        console.log(respuesta)
+        this.anuncios=respuesta
+      },
+      error => {console.log(error)}
+    )
+  }
+  
+  obtenerAnunciosElec(): void{
+    this.servicioAnuncio.listarAnunciosElec().subscribe(
+      respuesta =>{
+        console.log(respuesta)
+        this.anuncios=respuesta
+      },
+      error => {console.log(error)}
+    )
+  }
+  obtenerAnunciosDeco(): void{
+    this.servicioAnuncio.listarAnunciosDeco().subscribe(
+      respuesta =>{
+        console.log(respuesta)
+        this.anuncios=respuesta
+      },
+      error => {console.log(error)}
+    )
+  }
+  obtenerAnunciosVehi(): void{
+    this.servicioAnuncio.listarAnunciosVehi().subscribe(
       respuesta =>{
         console.log(respuesta)
         this.anuncios=respuesta
@@ -39,16 +78,7 @@ export class HomeComponent implements OnInit {
       error => console.log(error)
     )
   }
-  eliminarAnuncio(): void{
-    this.servicioAnuncio.eliminarAnuncio().subscribe(
-      respuesta => {
-        console.log(respuesta)
-        this.anuncios=respuesta
-        this.irHacia.navigate(['/home'])
-      },
-      error => console.log(error)
-    )
-  }
+  
 
 
 }

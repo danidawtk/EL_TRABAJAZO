@@ -24,11 +24,18 @@
   
 
 }
+
+.cate{
+  text-align: left;
+  padding-left: 10px;
+  font-style: italic;
+}
+
 .pariz{
   float:left;
   width: 30%;
-  
  }
+
  .parde{
   text-align: left;
   float:left;
@@ -36,13 +43,21 @@
   
   font-size: 200%;
  }
+
  .parde b{
      margin: 10px;
      background-color: rgba(20, 20, 20, 0.5) ;
      
  }
+
  .pie{
      clear:both;
      padding:10px;
      
+ }
+
+ .botocate{
+   color: aliceblue;
+   background-color: rgba(20, 20, 20, 0.5) ;
+   border: 2px solid rgba(20, 20, 20, 0.5);
  }
