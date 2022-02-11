@@ -2,8 +2,27 @@
 	            left: 0;
 	            top: 0;
                 position: fixed; 
-             }
+}
 
 .container { 
         padding-top: 6%;
-         }
+}
+
+
+@media only screen and (max-width: 1200px) {
+        .container { 
+                padding-top: 8%;
+        }
+}
+
+@media only screen and (max-width: 980px) {
+        .container { 
+                padding-top: 14%;
+        }
+}
+
+@media only screen and (max-width: 575px) {
+        .container { 
+                padding-top: 38%;
+        }
+}
