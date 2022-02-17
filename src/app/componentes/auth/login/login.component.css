@@ -1,0 +1,8 @@
+.card{
+    background-color: rgb(53, 53, 53);
+    color: rgb(255, 255, 255);
+}
+.card .form-control{
+    background-color: rgb(43, 43, 43);
+    color: rgb(255, 255, 255);
+}
