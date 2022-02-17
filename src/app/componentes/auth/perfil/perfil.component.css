@@ -61,3 +61,43 @@
     padding:10px;
     
 }
+.td{
+    color: aliceblue;
+    background-color: rgba(20, 20, 20, 0.5) ;
+}
+.labeleditor{
+    align-items: center;
+    font-size: 140%;
+    color: aliceblue;
+    background-color: rgba(20, 20, 20, 0.5) ;  
+}
+.editor .form-control{
+    background-color: rgb(24, 24, 24);
+    color: rgb(255, 255, 255);
+}
+.editor .camposedit{
+    background-color: rgb(24, 24, 24);
+    color: aliceblue;
+}
+
+.editor{
+    
+    padding-left: 14%;
+    padding-right: 14%;
+}
+
+.botones{
+    text-align: center;
+}
+.imageanu{
+    width:100%;
+    height: 100%;
+    border-radius: 150px;
+    border:10px solid rgb(145, 253, 154);
+
+}
+.table{
+    
+    padding-left: 14%;
+    padding-right: 14%;
+}

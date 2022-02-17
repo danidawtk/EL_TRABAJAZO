@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/clases/user';
 import { UserService } from 'src/app/servicios/user.service';
+import { AnuncioService } from 'src/app/servicios/anuncio.service';
+import { Anuncio } from 'src/app/clases/anuncio';
+
 
 
 @Component({
@@ -11,6 +14,8 @@ import { UserService } from 'src/app/servicios/user.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  anuncios: Anuncio[] = []
+  
   mensaje: string = ''
   perfil: User = {}
   mostrarEditar: boolean = false
@@ -26,13 +31,25 @@ export class PerfilComponent implements OnInit {
     telefono:[''],
     foto:[''],
   })
+  formNuevo: FormGroup = new FormGroup({
+    idanu: new FormControl(),
+    titulo: new FormControl("", Validators.required),
+    texto: new FormControl("", Validators.required),
+    precio: new FormControl("", Validators.required),
+    categoria: new FormControl("", Validators.required)
+  })
   formImagen = this.fb.group({
     imagen: ['', Validators.required]
   })
-  constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router) { }
+  formImagenanu = this.fb.group({
+    imagenanu: ['', Validators.required]
+  })
+  
+  constructor(private servicioUsuario:UserService, private fb:FormBuilder, private irHacia:Router, private servicioAnuncio:AnuncioService) { }
 
   ngOnInit(): void {
     this.cargarPerfil()
+    this.obtenerTusAnuncios()
   }
 cargarPerfil(): void{
   this.servicioUsuario.obtenerPerfil().subscribe(
@@ -82,6 +99,17 @@ subirImagen(): void{
     error => {console.log(error)}
   )
 }
+subirImagenanu(): void{
+  const formData = new FormData()
+  formData.append('imagenanu', this.formImagenanu.get('imagenanu').value)
+  this.servicioAnuncio.subirImagenanu(formData).subscribe(
+    respuesta => {
+      console.log(respuesta)
+      this.cargarPerfil()
+    },
+    error => {console.log(error)}
+  )
+}
 foto: File
 tengoFoto(evento): void{
   if(evento.target.files){
@@ -95,6 +123,36 @@ subirFoto(): void{
     respuesta => {
       console.log(respuesta)
       this.cargarPerfil()
+    },
+    error => {console.log(error)}
+  )
+}
+obtenerTusAnuncios():void{
+  this.servicioAnuncio.leerTusAnuncios().subscribe(
+    respuesta =>{
+      console.log(respuesta)
+      this.anuncios=respuesta
+    },
+    error => {console.log(error)}
+  )
+  
+}
+
+editarAnun(): void{
+  this.servicioAnuncio.editarAnu(this.formNuevo.value).subscribe(
+    respuesta => {
+      console.log(respuesta)
+      
+      this.obtenerTusAnuncios()
+    },
+    error => {console.log(error)}
+  )
+}
+eliminarAnuncio(): void{
+  this.servicioAnuncio.borrarAnuncio(this.formNuevo.value.idanu).subscribe(
+    respuesta => {console.log(respuesta)
+    this.formNuevo.reset()
+    this.obtenerTusAnuncios()
     },
     error => {console.log(error)}
   )

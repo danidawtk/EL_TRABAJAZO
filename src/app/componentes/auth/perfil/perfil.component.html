@@ -15,7 +15,7 @@
             <p class="card-text"><b>Teléfono:{{perfil.telefono}}</b></p><br>
              </div>
           <div class="pie">
-            <button class="btn btn-primary" (click)='mostrarEditar=!mostrarEditar'><i class="fas fa-edit"></i></button>
+            <button class="btn btn-primary" (click)='mostrarEditar=!mostrarEditar'><i class="fas fa-user-edit"></i></button>
             <button class="btn btn-danger" (click)='mostrarEliminar=!mostrarEliminar'><i class="fas fa-user-slash"></i></button>
           
           </div>
@@ -87,4 +87,88 @@
         </div>
       </div>
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+      <br>
+      <br>
+      <h1 class="princi">Tus Anuncios</h1>
+      <br>
+      <div class="editor">
+        <br>
+        
+        <form [formGroup]="formNuevo">
+          <label class="labeleditor">Título:</label>
+          <input type="text" class="form-control" placeholder="titulo..." formControlName="titulo">
+          <label class="labeleditor">Texto:</label>
+          <input type="text" class="form-control" placeholder="texto..." formControlName="texto">
+          <label class="labeleditor">Precio:</label>
+          <input type="text" class="form-control" placeholder="precio..." formControlName="precio">
+          <br>
+          <label class="labeleditor">Imagen:</label>
+          <form [formGroup]='formImagenanu' (ngSubmit)='subirImagenanu()'>
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="inputF1" formControlName='imagenanu' (change)='cambiaImagen($event)'>
+                <label class="custom-file-label" for="inputF1">Elegir Archivo</label>
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type='submit'>Subir imagen</button>
+              </div>
+            </div>
+          </form>
+          <br>
+          <label class="labeleditor">Categoría:</label>
+          <br>
+          <select class="camposedit" id="categoria" formControlName="categoria">
+            <option value="Otros">Otros</option>
+            <option value="Alimentacion">Alimentación</option>
+            <option value="Electronica">Electrónica</option>
+            <option value="Decoracion">Decoración</option>
+            <option value="Vehiculo">Vehículo</option>
+          </select>
+          
+        </form>
+        <br>
+        <div class="botones">
+          <button type="submit" class="btn btn-danger" (click)="eliminarAnuncio()" *ngIf="formNuevo.value.idanu" title="Borrar anuncio"><i class="fas fa-trash"></i></button>
+          <button type="submit" class="btn btn-primary" (click)="editarAnun()" *ngIf="formNuevo.value.idanu" title="Guardar cambios"><i class="fas fa-edit"></i></button>
+          <button type="submit" class="btn btn-warning" (click)="formNuevo.reset()" title="Cancelar selección">Cancelar</button>
+        </div>
+        <br>
+    </div>   
+    <div class="d-flex justify-content-center text-center">
+        <div class="col-sm-8">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th class="td">Imagen</th>
+                        <th class="td">Titulo</th>
+                        <th class="td">Texto</th>
+                        <th class="td">Precio</th>
+                        <th class="td">Categoría</th>
+                        <th class="td">Fecha publicación</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let anuncio of anuncios' (click)="formNuevo.patchValue(anuncio)">
+                        <td class="td"><img src="{{anuncio.fotoanu}}" class="imageanu"></td>
+                        <td class="td">{{anuncio.titulo}}</td>
+                        <td class="td">{{anuncio.texto}}</td>
+                        <td class="td">{{anuncio.precio}}€</td>
+                        <td class="td">{{anuncio.categoria}}</td>
+                        <td class="td">{{anuncio.fecha}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>     
+  </div>
