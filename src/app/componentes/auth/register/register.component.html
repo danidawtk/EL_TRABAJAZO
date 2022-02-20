@@ -2,7 +2,7 @@
         <div class="alert alert-danger" role="alert" *ngIf='errorpass'>
           <strong>{{errorpass}}</strong>
         </div>
-        <div style="padding-inline: 200px; padding-top: 50px;">
+        <div class="cont">
           <form [formGroup]="formRegister" (submit)="submit()"> 
               <label for="nombre">Nombre:</label>
               <input class="form-control" type="text" placeholder="Nombre" id="nombre" formControlName="nombre">
@@ -11,10 +11,10 @@
               <input class="form-control" type="text" placeholder="Apellidos" id="apellidos" formControlName="apellidos">
               <br>
               <label for="password">Contraseña:</label>
-              <input class="form-control" type="text" placeholder="Contraseña" id="password" formControlName="password">
+              <input class="form-control" type="password" placeholder="Contraseña" id="password" formControlName="password">
               <br>
               <label for="passconf">Repite contraseña:</label>
-              <input class="form-control" type="text" placeholder="Contraseña" id="passconf" formControlName="password2">
+              <input class="form-control" type="password" placeholder="Contraseña" id="passconf" formControlName="password2">
               <br>
               <label for="poblacion">Poblacion:</label>
               <input class="form-control" type="text" placeholder="Poblacion" id="poblacion" formControlName="poblacion">
