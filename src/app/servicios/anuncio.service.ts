@@ -48,4 +48,7 @@ export class AnuncioService {
   borrarAnuncio(idanu: number): Observable<any>{
     return this.http.delete(url+idanu)
   }
+  subirImagenanu(entrada): Observable<any>{
+    return this.http.post(url+'imageanu/', entrada) 
+   }
 }
