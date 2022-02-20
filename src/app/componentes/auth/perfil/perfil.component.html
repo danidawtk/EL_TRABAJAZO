@@ -116,14 +116,15 @@
           <form [formGroup]='formImagenanu' (ngSubmit)='subirImagenanu()'>
             <div class="input-group">
               <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputF1" formControlName='imagenanu' (change)='cambiaImagen($event)'>
-                <label class="custom-file-label" for="inputF1">Elegir Archivo</label>
+                <input type="file" class="custom-file-input" id="inputF2" formControlName='imagenanu' (change)='cambiaImagenanu($event)'>
+                <label class="custom-file-label" for="inputF2">Elegir Archivo</label>
               </div>
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary" type='submit'>Subir imagen</button>
               </div>
             </div>
           </form>
+          
           <br>
           <label class="labeleditor">Categoría:</label>
           <br>

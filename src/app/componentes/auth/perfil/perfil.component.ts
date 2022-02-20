@@ -88,6 +88,12 @@ cambiaImagen(evento): void{
   }
 }
 
+cambiaImagenanu(evento): void{
+  if(evento.target.files){
+    this.formImagenanu.get('imagenanu').setValue(evento.target.files[0])
+  }
+}
+
 subirImagen(): void{
   const formData = new FormData()
   formData.append('imagen', this.formImagen.get('imagen').value)
