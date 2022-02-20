@@ -1,7 +1,7 @@
 <div class="alert alert-danger" role="alert" *ngIf='mensaje'>
     <strong>{{mensaje}}</strong>
 </div>
-<div style="padding-inline: 150px; padding-top: 50px;">
+<div class="cont">
     <form [formGroup]="formAnunciar" (submit)="submit()"> 
         <label for="titulo">Titulo:</label>
         <input class="form-control" type="text" placeholder="Titulo" id="titulo" formControlName="titulo">
@@ -13,25 +13,24 @@
         <label for="precio">Precio:</label>
         <input class="form-control" type="text" placeholder="Precio(€)" id="precio" formControlName="precio">
         <br>
-        <form>
-            <div class="input-group">
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="inputF1">
-                <label class="custom-file-label" for="inputF1">Elegir Archivo</label>
-              </div>
-              
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type='submit'>Subir imagen</button>
-              </div>
-              
-            </div>
-          </form>
+        
+          <br>
+          <div>
+            <label for="categoria">Categoría:</label><br>
+            <select class="categoria" id="categoria" formControlName="categoria">
+              <option value="Otros" selected>Otros</option>
+              <option value="Alimentacion">Alimentación</option>
+              <option value="Electronica">Electrónica</option>
+              <option value="Decoracion">Decoración</option>
+              <option value="Vehiculo">Vehículo</option>
+            </select>
+        </div>
         <hr>
-        <input class="form-control" type="hidden"  id="idanunciante" formControlName="idanunciante" value="6">
-        <input class="form-control" type="hidden"  id="fotoanu" formControlName="fotoanu">
+        
         
         
         <button class="btn btn-primary btn-block" type ="submit">Anunciar</button>
-    </form>
+        <br>
+      </form>
   </div>
   

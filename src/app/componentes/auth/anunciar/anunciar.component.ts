@@ -29,8 +29,9 @@ export class AnunciarComponent implements OnInit {
     titulo:[''],
     texto:[''],
     precio:[''],
-    idanunciante:['4'],
-    fotoanu:['http://localhost/EL_TRABAJAZO/backend/images/SIN-IMAGEN.jpg']
+    idanunciante:[''],
+    fotoanu:['http://localhost/EL_TRABAJAZO/backend/images/SIN-IMAGEN.jpg'],
+    categoria:['']
   })
   
 
